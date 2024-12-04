@@ -24,6 +24,7 @@ def init_db():
     conn.commit()
     conn.close()
 
+
 # Scraping logic
 def scrape_vps_prices():
     providers = {
@@ -47,6 +48,7 @@ def scrape_vps_prices():
 
 # Save to database and detect changes
 def save_to_db(new_data):
+    
     conn = sqlite3.connect(db_name)
     cursor = conn.cursor()
     for provider, name, price, last_updated, url in new_data:
@@ -83,4 +85,3 @@ def main():
 
 if __name__ == "__main__":
     main()
-
